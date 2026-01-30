@@ -1,6 +1,7 @@
 package com.matias.curso.springboot.webapp.springboot_web.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -8,7 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class UserController {
 
     @GetMapping("/app/details")
-    public String details() {
+    public String details(Model model) {
+
+        model.addAttribute("title", "Página de detalles");
+        model.addAttribute("name", "Matías");
+        model.addAttribute("lastname", "Coco");
         return "details";
     }
     
