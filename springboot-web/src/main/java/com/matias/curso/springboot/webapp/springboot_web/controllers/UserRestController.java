@@ -1,6 +1,9 @@
 package com.matias.curso.springboot.webapp.springboot_web.controllers;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,12 +27,23 @@ public class UserRestController {
         return response;
     }
 
-     @GetMapping("/details")
+    @GetMapping("/details")
     public UserDto details() {
         UserDto userDto = new UserDto();
         User user = new User("Matías", "Coco");
         userDto.setUser(user);
         userDto.setTitle("Página de detalles");
         return userDto;
+    }
+
+    @GetMapping("/list")
+    public List<User> list() {
+        User user1 = new User("Matías", "Coco");
+        User user2 = new User("Rocio", "Pallares");
+        User user3 = new User("Agustina", "Coco");
+
+        List<User> list = Arrays.asList(user1,user2,user3);
+        
+        return list;
     }
 }
