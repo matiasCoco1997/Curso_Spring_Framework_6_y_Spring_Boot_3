@@ -20,7 +20,7 @@ public class UserRestController {
     @GetMapping("/details-map")
     public Map<String,Object> detailsMap() {
         Map<String,Object> response = new HashMap<>();
-        User user = new User("Matías", "Coco");
+        User user = new User("Matías", "Coco", "email@gmail.com");
         response.put("title", "Página de detalles");
         response.put("user", user);
         return response;
@@ -29,7 +29,7 @@ public class UserRestController {
     @GetMapping("/details")
     public UserDto details() {
         UserDto userDto = new UserDto();
-        User user = new User("Matías", "Coco");
+        User user = new User("Matías", "Coco", "matias@gmail.com");
         userDto.setUser(user);
         userDto.setTitle("Página de detalles");
         return userDto;
@@ -37,9 +37,9 @@ public class UserRestController {
 
     @GetMapping("/list")
     public List<User> list() {
-        User user1 = new User("Matías", "Coco");
-        User user2 = new User("Rocio", "Pallares");
-        User user3 = new User("Agustina", "Coco");
+        User user1 = new User("Matías", "Coco", "matias@gmail.com");
+        User user2 = new User("Rocio", "Pallares", "rocio@gmail.com");
+        User user3 = new User("Agustina", "Coco", "agustina@gmail.com");
 
         List<User> list = Arrays.asList(user1,user2,user3);
         

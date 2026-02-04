@@ -10,5 +10,7 @@
 
     <h2 ><span th:text="${user.name}"></span> <span th:text="${user.lastname}"></span> </h2>
     
+    <h2 th:if="${user.email}" th:text="${user.email}"> </h2>
+    <h2 th:if="${user.email == null}" th:text="${'No posee email.'}"> </h2>
 </body>
 </html>
