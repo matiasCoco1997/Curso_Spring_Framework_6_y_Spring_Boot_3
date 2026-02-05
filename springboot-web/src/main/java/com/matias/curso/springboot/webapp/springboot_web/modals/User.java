@@ -12,6 +12,11 @@ public class User {
         this.email = email;
     }
 
+    public User(String name, String lastname) {
+        this.name = name;
+        this.lastname = lastname;
+    }
+
     public String getName() {
         return name;
     }
