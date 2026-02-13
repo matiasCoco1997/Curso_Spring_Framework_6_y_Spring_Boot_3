@@ -4,9 +4,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.matias.curso.springboot.webapp.springboot_web.modals.dto.ParamDto;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 
 @RestController
@@ -21,5 +25,17 @@ public class PathVariableController {
 
         return param;
     }
+
+    @GetMapping("/mix/{product}/{id}")
+    public Map<String,Object> mixPathVar(@PathVariable String product, @PathVariable Long id) {
+
+        Map<String, Object> json = new HashMap<>();
+
+        json.put("id", id | 1);
+        json.put("product", product);
+
+        return json;
+    }
+    
     
 }
