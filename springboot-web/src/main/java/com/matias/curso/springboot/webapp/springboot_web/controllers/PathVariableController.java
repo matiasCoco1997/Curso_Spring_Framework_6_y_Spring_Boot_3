@@ -6,6 +6,7 @@ import com.matias.curso.springboot.webapp.springboot_web.modals.User;
 import com.matias.curso.springboot.webapp.springboot_web.modals.dto.ParamDto;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -14,8 +15,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 
 @RestController
@@ -29,10 +28,16 @@ public class PathVariableController {
     private String message;
 
     @Value("${config.listOfValue}")
-    private String[] listOfValue;
+    private List<String> listOfValue;
 
     @Value("${config.code}")
     private Integer code;
+
+    @Value("#{ '${config.listOfValue}'.toUpperCase().split(',')}")
+    private List<String> valueList;
+
+    @Value("#{ '${config.listOfValue}'.toUpperCase() }")
+    private String valueString;
 
     @GetMapping("/baz/{message}")
     public ParamDto baz(@PathVariable String message) {
@@ -67,8 +72,10 @@ public class PathVariableController {
         
         json.put("username", username);
         json.put("code", code);
-        json.put("listOfValue", listOfValue);
         json.put("message", message);
+        json.put("listOfValue", listOfValue);
+        json.put("valueList", valueList);
+        json.put("valueString", valueString);
 
         return json;
     }
