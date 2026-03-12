@@ -5,7 +5,7 @@ import java.util.List;
 import com.matias.springboot.di.app.springboot_di.models.Product;
 import com.matias.springboot.di.app.springboot_di.repositories.ProductRepository;
 
-public class ProductService {
+public class ProductService implements IProductService {
 
     private ProductRepository productRepository = new ProductRepository();
 
