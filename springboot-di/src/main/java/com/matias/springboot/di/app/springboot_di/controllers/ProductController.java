@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.matias.springboot.di.app.springboot_di.models.Product;
-import com.matias.springboot.di.app.springboot_di.services.ProductService;
+import com.matias.springboot.di.app.springboot_di.services.IProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ProductController {
 
     @Autowired
-    private ProductService productService;
+    private IProductService productService;
 
     @GetMapping  
     public List<Product> list(){

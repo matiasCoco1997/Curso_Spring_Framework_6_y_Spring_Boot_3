@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.matias.springboot.di.app.springboot_di.models.Product;
-import com.matias.springboot.di.app.springboot_di.repositories.ProductRepository;
+import com.matias.springboot.di.app.springboot_di.repositories.IProductRepository;
 
 @Component
 public class ProductService implements IProductService {
 
     @Autowired
-    private ProductRepository productRepository;
+    private IProductRepository productRepository;
 
     public List<Product> findAll(){
         return productRepository.findAll().stream().map(p -> {
